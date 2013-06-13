@@ -47,11 +47,13 @@ leb() {
 *.info;authpriv.none;cron.none -/var/log/messages
 authpriv.* -/var/log/authpriv
 cron.* -/var/log/cron
+mail.* -/var/log/mail
 EOF
     cat > /etc/logrotate.d/inetutils-syslogd <<EOF
 /var/log/cron
 /var/log/authpriv
 /var/log/messages
+/var/log/mail
 {
   rotate 4
   weekly
@@ -95,7 +97,8 @@ service privatessh
   socket_type = stream
   wait = no
   disable = no
-  only_from = $IPS
+  #add private IPs for home servers
+  only_from = $IPS 10.0.0.0/8 192.168.0.0/16 172.16.0.0/12
   user = root
   server = /usr/sbin/dropbear
   server_args = -i -I 600

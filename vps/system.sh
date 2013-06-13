@@ -124,3 +124,8 @@ lowendbox() {
   unneeded
   leb
 }
+
+setup() {
+  basics
+  lowendbox
+}

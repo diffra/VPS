@@ -36,9 +36,9 @@ EOF
       buyvm)
         cat > /etc/apt/sources.list <<EOF
 # Tiger's Way
-deb http://mirrors.buyvm.net/debian/ squeeze main contrib non-free
-deb http://mirrors.buyvm.net/debian/ squeeze-updates main contrib non-free
-deb http://security.debian.org/ squeeze/updates main
+deb http://mirrors.buyvm.net/debian/ wheezy main contrib non-free
+deb http://mirrors.buyvm.net/debian/ wheezy-updates main contrib non-free
+deb http://security.debian.org/ wheezy/updates main
 EOF
         ;;
       *)
@@ -47,9 +47,9 @@ EOF
         fi
         cat > /etc/apt/sources.list <<EOF
 # Tiger's Way
-deb http://ftp.$REPLY.debian.org/debian/ squeeze main contrib non-free
-deb http://ftp.$REPLY.debian.org/debian/ squeeze-updates main contrib non-free
-deb http://security.debian.org/ squeeze/updates main
+deb http://ftp.$REPLY.debian.org/debian/ wheezy main contrib non-free
+deb http://ftp.$REPLY.debian.org/debian/ wheezy-updates main contrib non-free
+deb http://security.debian.org/ wheezy/updates main
 EOF
     esac
   fi

@@ -5,7 +5,7 @@
 dotdeb() {
   if [ ! -e /etc/apt/sources.list.d/dotdeb.list ]; then
     cat > /etc/apt/sources.list.d/dotdeb.list <<EOF
-deb http://packages.dotdeb.org/ squeeze all
+deb http://packages.dotdeb.org/ wheezy all
 EOF
     wget -q -O - http://www.dotdeb.org/dotdeb.gpg | apt-key add -
 

@@ -7,36 +7,45 @@ Debian Squeeze VPS.
 
 ## Quick usage
 
-1. Download: wget -q https://github.com/downloads/TigersWay/VPS/vps-0.5.tar.gz --no-check-certificate -O - | tar xz
+1. Download: wget -q https://github.com/downloads/diffra/VPS/archive/master.zip --no-check-certificate -O - | tar xz
 2. Run: bash vps.sh
 
-You will then find 3 main options:
+There are 3 main options:
 
-* minimal (Light Debian server + SSH)
 * basics (hostname, timezone, APT sources)
 * lowendbox (LEA style: syslogd, xinetd, dropbear)
+* setup - Runs basics, then LEB.
 
 and a set of different commands:
 
-* dotdeb
-* apache
-* nginx
-* mysql
-* phpfpm
-* lamp ((Apache + MySQL(MyISAM) + PHP5-FPM)
-* lemp (nginx + MySQL(MyISAM) + PHP5-FPM)
-* domain <[subdomain.]domain.tld>
-* polipo (Light-weight SOCKS & HTTP proxy)
-* tinyproxy (DEPRECATED Light-weight HTTP/HTTPS proxy)
-* pptp (Tunneling)
+* apache - use Apache for HTTP Service
+* nginx - use nginx for HTTP service
+* mysql - setup minimized mysql instance
+* phpfpm - setup minimized PHP service
+* lamp ((Apache + MySQL(MyISAM) + PHP5-FPM) - auto-installs apache/mysql/php
+* lemp (nginx + MySQL(MyISAM) + PHP5-FPM) - auto installs nginx/mysql/php RECOMENDED
+* domain <[subdomain.]domain.tld> - configure new domain for web hosting in apache/nginx
 
 As a developer, I personally first run
-`bash vps.sh basics lowendbox` which gives me a light (~ 5M) box, then
-`bash vps.sh dotdeb apache nginx mysql phpfmp domain dev.example.com` and I am then able to switch apache and nginx anytime with
-`bash vps.sh nginx` or
-`bash vps.sh apache`.
+`bash vps.sh setup` which gives me a light (~ 5M) box, then
+`bash vps.sh lemp` to get a full hosting environment, then
+`bash vps.sh domain sub.domain.tld` to add domains to the server.  If you want to switch to apache, it's as easy as:
+`bash vps.sh apache` -- And switching back to nginx, you just run that command.
 
 ## History
+
+### Alpha 1 2013-06-21
+* Forked from tigersway scripts
+ * updated to debian 7
+ * configured to allow local access for use on home servers
+ * streamlined setup command
+ * Removed unnecessary/insecure options polipo, pptp - to be replaced with SSH proxy.
+* **TODO:  **
+ * multi-domain Mailserver setup
+ * Auto-update packages
+ * Status emails
+ * Status monitoring?
+ * 
 
 ### 0.5 03/04/2012
 * bench
@@ -58,7 +67,7 @@ As a developer, I personally first run
 
 ## Copyright and License
 
-Copyright (c) 2012 Benoit Michaud / Tiger's Way
+Copyright (c) 2013 James Bertelson / Diffras
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

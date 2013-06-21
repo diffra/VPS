@@ -22,7 +22,7 @@
 # ------------------------------------------------------------ #
 #!/bin/bash
 
-echo -e "\e[1mVPS Management v0.5 (Tiger's Way)\e[m";
+echo -e "\e[1mVPS Management v1.0 Alpha 1\e[m";
 
 # Sanity checks
 

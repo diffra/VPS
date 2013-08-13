@@ -8,8 +8,10 @@
 
 basics() {
   HOSTNAME=`cat /etc/hostname`
-  if ! confirm "Confirm or input new hostname" $HOSTNAME; then
+  if ! confirm "Confirm or input new hostname (If installing a mail server, use a FQDN e.g. server.example.com)" $HOSTNAME; then
     echo $REPLY > /etc/hostname
+    #add to /etc/hosts
+    echo "127.0.0.2    $REPLY" > /etc/hosts
     hostname -F /etc/hostname
   fi
 

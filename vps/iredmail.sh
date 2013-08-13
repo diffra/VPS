@@ -10,6 +10,8 @@ tar xjvf iredmail.tar.bz2
 #have to cd into directory for iredmail installer to work.
 cd iRedMail-0.8.5
 bash iRedMail.sh
+#iredmail install script doesn't restart apache to load :443
+service apache2 restart
 }
 
 addModule "iredmail (Full mail solution)"

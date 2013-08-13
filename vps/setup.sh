@@ -57,9 +57,18 @@ EOF
   fi
 
 #ensure aptitude is installed
+
 apt-get -y update
 apt-get -y install aptitude
 
+#ensure locales are set up
+LCL=`grep LANG /etc/default/locale`
+if [ -z $LCL ]
+  LCL='en_US.UTF8'
+
+apt_install 'locales'
+locale-gen en_US.UTF8
+update-locale LANG=en_US.UTF8
 
   apt_update
 }

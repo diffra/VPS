@@ -56,5 +56,10 @@ EOF
     esac
   fi
 
+#ensure aptitude is installed
+apt-get -y update
+apt-get -y install aptitude
+
+
   apt_update
 }
